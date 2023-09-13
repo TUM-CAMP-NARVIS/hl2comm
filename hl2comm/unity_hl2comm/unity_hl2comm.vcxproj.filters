@@ -142,6 +142,9 @@
     <ClCompile Include="..\unity_comm\receive_eet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\unity_comm\receive_pv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\hl2comm\custom_hook_callback.h">
@@ -292,6 +295,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\unity_comm\receive_eet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\unity_comm\receive_pv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -292,6 +292,7 @@
     <ClCompile Include="..\hl2comm\voice_input.cpp" />
     <ClCompile Include="..\packages\Microsoft.MixedReality.SceneUnderstanding.1.0.14\include\native\Microsoft.MixedReality.SceneUnderstanding.cpp" />
     <ClCompile Include="..\unity_comm\receive_eet.cpp" />
+    <ClCompile Include="..\unity_comm\receive_pv.cpp" />
     <ClCompile Include="holographic_space_stub.cpp" />
     <ClCompile Include="plugin.cpp" />
     <ClCompile Include="ipc.cpp" />
@@ -336,6 +337,7 @@
     <ClInclude Include="..\hl2comm\types.h" />
     <ClInclude Include="..\hl2comm\voice_input.h" />
     <ClInclude Include="..\unity_comm\receive_eet.h" />
+    <ClInclude Include="..\unity_comm\receive_pv.h" />
     <ClInclude Include="configuration.h" />
     <ClInclude Include="plugin_exports.h" />
     <ClInclude Include="PlatformBase.h" />

@@ -165,7 +165,7 @@ namespace tcn
 
         void HandleMessage(tcn.EET_Sample eet_sample)
         {
-            UnityEngine.Debug.Log("received some message: " + eet_sample.ValueToString());
+            UnityEngine.Debug.Log("received eet message: " + eet_sample.ValueToString());
         }
 
     }

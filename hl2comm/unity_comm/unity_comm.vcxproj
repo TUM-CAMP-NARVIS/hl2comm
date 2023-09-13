@@ -259,6 +259,7 @@
     <ClCompile Include="plugin.cpp" />
     <ClCompile Include="ipc.cpp" />
     <ClCompile Include="receive_eet.cpp" />
+    <ClCompile Include="receive_pv.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\hl2comm\lock.h" />
@@ -271,6 +272,7 @@
     <ClInclude Include="plugin.h" />
     <ClInclude Include="ipc.h" />
     <ClInclude Include="receive_eet.h" />
+    <ClInclude Include="receive_pv.h" />
     <ClInclude Include="Unity\IUnityGraphics.h" />
     <ClInclude Include="Unity\IUnityGraphicsD3D11.h" />
     <ClInclude Include="Unity\IUnityGraphicsD3D12.h" />

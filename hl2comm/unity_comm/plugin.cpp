@@ -23,6 +23,7 @@
 #include "fastcdr/Cdr.h"
 
 #include "receive_eet.h"
+#include "receive_pv.h"
 
 
 
@@ -167,6 +168,56 @@ ZSendMessage(const char* keyexpr, uint8_t * buffer, std::size_t buffer_len, z_en
     return MQ_SendMessage(keyexpr, buffer, buffer_len, encoding, block);
 }
 
+typedef char* charptr;
+
+extern "C" charptr UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
+ZGet(const char* topic) {
+    char* result = nullptr;
+    if (!g_zenoh_context) {
+        SPDLOG_ERROR("SetupZenohRawSubscription called, but Zenoh context is empty.");
+        return result;
+    }
+
+    z_keyexpr_t keyexpr = z_keyexpr(topic);
+    if (!z_check(keyexpr)) {
+        SPDLOG_ERROR("{0} is not a valid key expression", topic);
+        return result;
+    }
+
+    z_owned_reply_channel_t channel = zc_reply_fifo_new(16);
+    z_get_options_t opts = z_get_options_default();
+    z_get(z_loan(g_zenoh_context->session), keyexpr, "", z_move(channel.send),
+        &opts);  // here, the send is moved and will be dropped by zenoh when adequate
+    z_owned_reply_t reply = z_reply_null();
+
+    SPDLOG_DEBUG("ZGet: get from topic: {0}", topic);
+    for (z_call(channel.recv, &reply); z_check(reply); z_call(channel.recv, &reply)) {
+        if (z_reply_is_ok(&reply)) {
+            z_sample_t sample = z_reply_ok(&reply);
+
+            result = new char[sample.payload.len];
+
+            z_owned_str_t keystr = z_keyexpr_to_string(sample.keyexpr);
+            SPDLOG_DEBUG("ZGet Received ('{0}' len: {1})", z_loan(keystr), (int)sample.payload.len);
+            memcpy(result, sample.payload.start, sample.payload.len);
+
+            z_drop(z_move(keystr));
+        }
+        else {
+            SPDLOG_ERROR("ZGet: Received an error");
+        }
+    }
+    z_drop(z_move(reply));
+    z_drop(z_move(channel));
+
+    return result;
+}
+
+extern "C" int UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
+MQ_FreePayload(const char* data) {
+    delete[] data;
+    return 0;
+}
 
 
 // OK
@@ -300,5 +351,22 @@ StopEETReceiveOnUI()
     if (!g_zenoh_context) { return false; }
     call_deferred(Receive_EET_Quit);
     call_deferred(Receive_EET_Cleanup);
+    return true;
+}
+
+extern "C" bool UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
+StartPVReceiveOnUI(PVSubscriptionCallback cb, const char* topic)
+{
+    if (!g_zenoh_context) { return false; }
+    call_deferred(Receive_PV_Initialize, g_zenoh_context, cb, topic);
+    return true;
+}
+
+extern "C" bool UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
+StopPVReceiveOnUI()
+{
+    if (!g_zenoh_context) { return false; }
+    call_deferred(Receive_PV_Quit);
+    call_deferred(Receive_PV_Cleanup);
     return true;
 }

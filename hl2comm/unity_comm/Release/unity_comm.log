@@ -1,0 +1,16 @@
+﻿  lock.cpp
+D:\develop\apps\hl2comm\hl2comm\hl2comm\lock.cpp(35,1): fatal  error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  log.cpp
+D:\develop\apps\hl2comm\hl2comm\hl2comm\log.cpp(143,1): fatal  error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  manager.cpp
+D:\develop\apps\hl2comm\hl2comm\hl2comm\manager.cpp(1357,1): fatal  error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  timestamps.cpp
+D:\develop\apps\hl2comm\hl2comm\hl2comm\timestamps.cpp(104,1): fatal  error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  plugin.cpp
+D:\develop\apps\hl2comm\hl2comm\unity_comm\plugin.cpp(373,1): fatal  error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  ipc.cpp
+D:\develop\apps\hl2comm\hl2comm\unity_comm\ipc.cpp(146,1): fatal  error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  receive_eet.cpp
+D:\develop\apps\hl2comm\hl2comm\unity_comm\receive_eet.cpp(186,1): fatal  error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  receive_pv.cpp
+D:\develop\apps\hl2comm\hl2comm\unity_comm\receive_pv.cpp(159,1): fatal  error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?

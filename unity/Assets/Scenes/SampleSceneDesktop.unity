@@ -234,6 +234,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &464350942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 464350944}
+  - component: {fileID: 464350943}
+  m_Layer: 0
+  m_Name: PVReceiver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &464350943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464350942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0751b0bd1e7067499bb58a7c7271ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subscriber_name: VideoReceiver
+  topic_name: tcn/loc/hl2/HOLOLENS-5R0FAA/str/pv
+--- !u!4 &464350944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464350942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538735660
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +290,7 @@ GameObject:
   - component: {fileID: 538735662}
   - component: {fileID: 538735661}
   m_Layer: 0
-  m_Name: MessageReceiver
+  m_Name: EETReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,11 +305,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 538735660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882947007623474418592484ab723983, type: 3}
+  m_Script: {fileID: 11500000, guid: 04394e471051b034ea594ba5f3836547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subscriber_name: EETSubscriber
-  topic_name: tcn/loc/hl2/surgeon/str/eet_json
+  subscriber_name: EETReceiver
+  topic_name: tcn/loc/hl2/HOLOLENS-5R0FAA/str/eet
 --- !u!4 &538735662
 Transform:
   m_ObjectHideFlags: 0

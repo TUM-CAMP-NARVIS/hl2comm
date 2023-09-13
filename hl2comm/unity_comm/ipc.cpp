@@ -67,6 +67,7 @@ void free_subscriber_context(void* context) {
 //-----------------------------------------------------------------------------
 
 
+
 int MQ_SetupZenohRawSubscription(const char* name, const char* keyexpr, ZenohSubscriptionCallBack cb) {
 	if (!g_zenoh_context) {
 		SPDLOG_ERROR("SetupZenohRawSubscription called, but Zenoh context is empty.");

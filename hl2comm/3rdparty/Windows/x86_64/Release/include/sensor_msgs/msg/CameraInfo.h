@@ -67,9 +67,7 @@ class Cdr;
 
 namespace sensor_msgs {
     namespace msg {
-
         typedef std::array<double, 9> double__9;
-
         typedef std::array<double, 12> double__12;
         /*!
          * @brief This class represents the structure CameraInfo defined by the user in the IDL file.

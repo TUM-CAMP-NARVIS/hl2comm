@@ -65,7 +65,6 @@ class Cdr;
 
 namespace shape_msgs {
     namespace msg {
-
         typedef std::array<double, 4> double__4;
         /*!
          * @brief This class represents the structure Plane defined by the user in the IDL file.

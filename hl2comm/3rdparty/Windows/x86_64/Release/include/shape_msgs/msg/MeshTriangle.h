@@ -65,7 +65,6 @@ class Cdr;
 
 namespace shape_msgs {
     namespace msg {
-
         typedef std::array<uint32_t, 3> uint32__3;
         /*!
          * @brief This class represents the structure MeshTriangle defined by the user in the IDL file.

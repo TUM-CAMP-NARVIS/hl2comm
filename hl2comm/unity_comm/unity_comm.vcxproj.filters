@@ -33,6 +33,9 @@
     <ClCompile Include="..\hl2comm\timestamps.cpp">
       <Filter>Libraries\hl2comm</Filter>
     </ClCompile>
+    <ClCompile Include="receive_eet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ipc.h">
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="..\hl2comm\timestamps.h">
       <Filter>Libraries\hl2comm</Filter>
+    </ClInclude>
+    <ClInclude Include="receive_eet.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -65,7 +65,6 @@ class Cdr;
 
 namespace unique_identifier_msgs {
     namespace msg {
-
         typedef std::array<uint8_t, 16> uint8__16;
         /*!
          * @brief This class represents the structure UUID defined by the user in the IDL file.

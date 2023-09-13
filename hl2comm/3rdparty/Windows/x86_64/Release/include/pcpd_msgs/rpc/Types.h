@@ -65,9 +65,7 @@ class Cdr;
 
 namespace pcpd_msgs {
     namespace rpc {
-
         typedef std::array<uint16_t, 4> uint16__4;
-
         typedef std::array<uint8_t, 8> uint8__8;
         /*!
          * @brief This class represents the enumeration RPCResponseStatus defined by the user in the IDL file.

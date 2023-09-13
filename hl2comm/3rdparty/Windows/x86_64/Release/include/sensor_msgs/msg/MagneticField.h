@@ -67,7 +67,6 @@ class Cdr;
 
 namespace sensor_msgs {
     namespace msg {
-
         typedef std::array<double, 9> double__9;
         /*!
          * @brief This class represents the structure MagneticField defined by the user in the IDL file.

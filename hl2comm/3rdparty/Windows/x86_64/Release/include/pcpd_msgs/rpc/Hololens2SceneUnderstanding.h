@@ -68,9 +68,7 @@ class Cdr;
 
 namespace pcpd_msgs {
     namespace rpc {
-
         typedef std::array<float, 16> float__16;
-
         typedef std::array<float, 2> float__2;
         /*!
          * @brief This class represents the enumeration HL2SUSceneUnderstanding_SceneMeshLevelOfDetail defined by the user in the IDL file.

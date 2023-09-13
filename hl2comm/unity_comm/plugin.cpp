@@ -235,6 +235,18 @@ void InitializeStreams(const char* _topic_prefix, const char* zcfg, uint32_t ena
     g_zenoh_context->streams_started = 0x00;
     g_zenoh_context->valid = true;
 
+
+    auto logger = std::make_shared<spdlog::logger>("hl2comm");
+    logger->set_level(spdlog::level::debug);
+    logger->set_pattern("%H:%M:%S.%e [%L] %v (%@, %t)");
+    spdlog::set_default_logger(logger);
+
+    spdlog::flush_every(std::chrono::milliseconds(500));
+    spdlog::flush_on(spdlog::level::debug);
+
+    SetupDebugLogSink();
+    SPDLOG_INFO("Init logging");
+
     StartManager(g_zenoh_context);
 
     MQ_Initialize(g_zenoh_context);

@@ -640,6 +640,7 @@ class rx_eet(stream_base):
         if sample is None:
             log.warning("{0} processed empty sample", self.svc_name)
             return
+        print(len(sample.payload))
 
         value = hl2ss_schema.Hololens2EyeTracking.deserialize(sample.payload)
         pose = Pose(value.position, value.orientation).to_matrix()

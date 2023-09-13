@@ -66,7 +66,6 @@ class Cdr;
 
 namespace geometry_msgs {
     namespace msg {
-
         typedef std::array<double, 36> double__36;
         /*!
          * @brief This class represents the structure AccelWithCovariance defined by the user in the IDL file.

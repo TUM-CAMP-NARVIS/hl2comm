@@ -65,17 +65,11 @@ class Cdr;
 
 namespace pcpd_msgs {
     namespace msg {
-
         typedef std::array<float, 2> float__2;
-
         typedef std::array<float, 3> float__3;
-
         typedef std::array<float, 4> float__4;
-
         typedef std::array<float, 9> float__9;
-
         typedef std::array<float, 12> float__12;
-
         typedef std::array<float, 16> float__16;
         /*!
          * @brief This class represents the enumeration Hololens2PixelFormat defined by the user in the IDL file.

@@ -55,6 +55,7 @@ struct subscriber_context {
 
     void data_handler(const z_sample_t* sample) {
         using namespace std::chrono;
+        spdlog::info("EET: received sample: payload len:{0}", sample->payload.len);
 
         z_owned_str_t keystr = z_keyexpr_to_string(sample->keyexpr);
 
@@ -62,9 +63,11 @@ struct subscriber_context {
         eprosima::fastcdr::FastBuffer cdrbuffer(buffer_start, sample->payload.len);
         eprosima::fastcdr::Cdr cdr_des(cdrbuffer);
         cdr_des.read_encapsulation();
+        spdlog::info("EET: received sample 01");
 
         pcpd_msgs::msg::Hololens2EyeTracking msg{};
         cdr_des >> msg;
+        spdlog::info("EET: received sample 02");
 
         EET_Struct eet_struct;
 
@@ -98,6 +101,7 @@ struct subscriber_context {
         eet_struct.valid = msg.valid();
 
 
+        spdlog::info("callback with eet_sample");
         callback(&eet_struct);
 
         z_drop(z_move(keystr));
@@ -153,7 +157,7 @@ void Receive_EET_Initialize(HC_Context_Ptr& context, EETSubscriptionCallback cb,
     //printf("Declaring Subscriber on '%s'...\n", expr);
     g_sub = z_declare_subscriber(z_loan(g_zenoh_context->session), z_keyexpr(topic), z_move(callback), &options);
     if (!z_check(g_sub)) {
-        printf("Unable to declare subscriber.\n");
+        spdlog::error("Unable to declare subscriber.");
         return;
     }
 }

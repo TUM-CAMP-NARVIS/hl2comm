@@ -67,7 +67,6 @@ class Cdr;
 
 namespace sensor_msgs {
     namespace msg {
-
         typedef std::array<double, 9> double__9;
         namespace NavSatFix_Constants {
             const uint8_t COVARIANCE_TYPE_UNKNOWN = 0;

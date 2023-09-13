@@ -60,7 +60,7 @@ struct subscriber_context {
 
         char* buffer_start = const_cast<char*>(reinterpret_cast<const char*>(sample->payload.start)); // not sure why we need to const_cast here .. we won't modify the buffer ..
         eprosima::fastcdr::FastBuffer cdrbuffer(buffer_start, sample->payload.len);
-        eprosima::fastcdr::Cdr cdr_des(cdrbuffer);
+        eprosima::fastcdr::Cdr cdr_des(cdrbuffer, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN, eprosima::fastcdr::Cdr::DDS_CDR);
         cdr_des.read_encapsulation();
         spdlog::info("PV: received sample 01");
 

@@ -124,13 +124,13 @@ namespace tcn
             // Unregister from the event when this object is disabled or destroyed
             //
             tcn.hl2comm.UnregisterSessionEvent(haveSessionEvent);
-            StopEETOnUI();
+            StopEETReceiveOnUI();
         }
 
         private void SessionEventCallback(bool status)
         {
             Debug.Log("Subscribing to topic: " + this.topic_name);
-            StartEETOnUI(OnInternalMessageCallback, this.topic_name);
+            StartEETReceiveOnUI(OnInternalMessageCallback, this.topic_name);
         }
 
         // Start is called before the first frame update
@@ -147,10 +147,10 @@ namespace tcn
 
 
         [DllImport(hl2comm.DllName, CallingConvention = CallingConvention.Cdecl)]
-        static extern bool StartEETOnUI(EETSubscriptionCallback cb, string topic);
+        static extern bool StartEETReceiveOnUI(EETSubscriptionCallback cb, string topic);
 
         [DllImport(hl2comm.DllName, CallingConvention = CallingConvention.Cdecl)]
-        static extern bool StopEETOnUI();
+        static extern bool StopEETReceiveOnUI();
 
         //Create string param callback delegate
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]  

@@ -25,6 +25,7 @@
 #include "../hl2comm/ipc_su.h"
 #include "../hl2comm/ipc_vi.h"
 #include "../hl2comm/stream_eet.h"
+#include "../unity_comm/receive_eet.h"
 
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.UI.Core.h>
@@ -270,6 +271,16 @@ void InitializeStreams(const char* _topic_prefix, const char* zcfg, uint32_t ena
     //if (enable & HL2SS_ENABLE_MQ) { MQ_Initialize(); }
     //if (enable & HL2SS_ENABLE_EET) { EET_Initialize(); }
 
+    auto logger = std::make_shared<spdlog::logger>("hl2comm");
+    logger->set_level(spdlog::level::debug);
+    logger->set_pattern("%H:%M:%S.%e [%L] %v (%@, %t)");
+    spdlog::set_default_logger(logger);
+
+    spdlog::flush_every(std::chrono::milliseconds(500));
+    spdlog::flush_on(spdlog::level::debug);
+
+    SetupDebugLogSink();
+    SPDLOG_INFO("Init logging");
 
     StartManager(g_zenoh_context);
 
@@ -547,5 +558,25 @@ OverrideWorldCoordinateSystem(void* scs_ptr)
     if (!scs) { return false; }
     }
     Locator_OverrideWorldCoordinateSystem(scs);
+    return true;
+}
+
+
+// receivers
+
+extern "C" bool UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
+StartEETReceiveOnUI(EETSubscriptionCallback cb, const char* topic)
+{
+    if (!g_zenoh_context) { return false; }
+    call_deferred(Receive_EET_Initialize, g_zenoh_context, cb, topic);
+    return true;
+}
+
+extern "C" bool UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
+StopEETReceiveOnUI()
+{
+    if (!g_zenoh_context) { return false; }
+    call_deferred(Receive_EET_Quit);
+    call_deferred(Receive_EET_Cleanup);
     return true;
 }

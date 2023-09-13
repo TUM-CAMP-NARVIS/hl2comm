@@ -139,6 +139,9 @@
       <Filter>Libraries\hl2comm</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\include\native\Microsoft.MixedReality.SceneUnderstanding.cpp" />
+    <ClCompile Include="..\unity_comm\receive_eet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\hl2comm\custom_hook_callback.h">
@@ -286,6 +289,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Unity\IUnityInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\unity_comm\receive_eet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

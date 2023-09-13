@@ -1,6 +1,6 @@
 #pragma once
 
-#include "hl2ss_network.h"
+#include "../hl2comm/hl2ss_network.h"
 #include <winrt/Windows.Foundation.Numerics.h>
 
 using namespace winrt::Windows::Foundation::Numerics;

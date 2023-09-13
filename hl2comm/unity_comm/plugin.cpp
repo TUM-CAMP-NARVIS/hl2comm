@@ -287,7 +287,7 @@ DebugMessage(char const* str)
 }
 
 extern "C" bool UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
-StartEETOnUI(EETSubscriptionCallback cb, const char* topic)
+StartEETReceiveOnUI(EETSubscriptionCallback cb, const char* topic)
 {
     if (!g_zenoh_context) { return false; }
     call_deferred(Receive_EET_Initialize, g_zenoh_context, cb, topic);
@@ -295,7 +295,7 @@ StartEETOnUI(EETSubscriptionCallback cb, const char* topic)
 }
 
 extern "C" bool UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
-StopEETOnUI()
+StopEETReceiveOnUI()
 {
     if (!g_zenoh_context) { return false; }
     call_deferred(Receive_EET_Quit);

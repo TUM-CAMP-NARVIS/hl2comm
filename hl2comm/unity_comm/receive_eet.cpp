@@ -1,9 +1,9 @@
-#include "server.h"
-#include "locator.h"
-#include "extended_eye_tracking.h"
-#include "ports.h"
-#include "timestamps.h"
-#include "log.h"
+#include "../hl2comm/server.h"
+#include "../hl2comm/locator.h"
+#include "../hl2comm/extended_eye_tracking.h"
+#include "../hl2comm/ports.h"
+#include "../hl2comm/timestamps.h"
+#include "../hl2comm/log.h"
 #include <chrono>
 
 #include <winrt/Windows.Foundation.h>
@@ -12,7 +12,7 @@
 #include <winrt/Windows.Perception.Spatial.h>
 #include <winrt/Microsoft.MixedReality.EyeTracking.h>
 
-#include "hl2ss_network.h"
+#include "../hl2comm/hl2ss_network.h"
 
 #include "pcpd_msgs/msg/Hololens2EyeTracking.h"
 #include "pcpd_msgs/msg/Hololens2Sensors.h"
